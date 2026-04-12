@@ -21,12 +21,12 @@
         work correctly both with client-side routing and a non-root public URL.
         Learn how to configure a non-root public URL by running `npm run build`.
         -->
-    <title>Portfolio</title>
+    <title>Emergent | Fullstack App</title>
     <script type="text/javascript" crossorigin="anonymous" async=""
         src="https://us-assets.i.posthog.com/static/array.js"></script>
     <script>window.addEventListener("error", function (e) { if (e.error instanceof DOMException && e.error.name === "DataCloneError" && e.message && e.message.includes("PerformanceServerTiming")) { e.stopImmediatePropagation(); e.preventDefault() } }, true);</script>
     <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
-    <script defer="" src="/static/js/bundle.js"></script>
+    <!-- <script defer="" src="/script.js"></script> -->
     <script>
         if (window.self !== window.top) {
             var s = document.createElement("script"); s.src = "/visual-edit-overlay.js"; document.head.appendChild(s);
@@ -4223,14 +4223,58 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                     x-line-number="156" x-column="12" x-component="span" x-id="Hero_156_12"
                                     x-dynamic="true" x-source-type="unknown" x-source-var="personal"
                                     x-source-path="lastName" x-source-editable="false">Hussain</span></h1>
-                            <div class="text-xl md:text-2xl font-medium mb-6" x-file-name="Hero" x-line-number="160"
-                                x-column="10" x-component="div" x-id="Hero_160_10" x-dynamic="false"
-                                style="font-family: &quot;IBM Plex Sans&quot;, sans-serif;"><span class="text-cyan-400"
-                                    x-file-name="Hero" x-line-number="36" x-column="4" x-component="span"
-                                    x-id="Hero_36_4" x-dynamic="true" x-source-type="state" x-source-var="displayed"
-                                    x-source-editable="false">Data Engineer<span class="animate-pulse ml-0.5"
-                                        x-file-name="Hero" x-line-number="38" x-column="6" x-component="span"
-                                        x-id="Hero_38_6" x-dynamic="false">|</span></span></div>
+                         <div class="text-xl md:text-2xl font-medium mb-6"
+     style="font-family: 'IBM Plex Sans', sans-serif;">
+
+  <span class="text-cyan-400 hero-typewriter-text"></span>
+  <span class="animate-pulse ml-0.5">|</span>
+
+</div>
+<script>
+const heroRoles = [
+ "Data Engineer",
+ "ML Developer",
+ "Backend Developer",
+ "CS Student @ JHU"
+];
+
+let roleIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+const el = document.querySelector(".hero-typewriter-text");
+
+function typeEffect(){
+
+  const current = heroRoles[roleIndex];
+
+  if(!deleting){
+    el.textContent = current.substring(0, charIndex + 1);
+    charIndex++;
+
+    if(charIndex === current.length){
+      deleting = true;
+      setTimeout(typeEffect, 1200);
+      return;
+    }
+
+  }else{
+
+    el.textContent = current.substring(0, charIndex - 1);
+    charIndex--;
+
+    if(charIndex === 0){
+      deleting = false;
+      roleIndex = (roleIndex + 1) % heroRoles.length;
+    }
+
+  }
+
+  setTimeout(typeEffect, deleting ? 50 : 90);
+}
+
+typeEffect();
+</script>
                             <p class="text-slate-400 text-lg leading-relaxed mb-10 max-w-xl" x-file-name="Hero"
                                 x-line-number="165" x-column="10" x-component="p" x-id="Hero_165_10" x-dynamic="true"
                                 x-source-type="unknown" x-source-var="personal" x-source-path="tagline"
@@ -4686,7 +4730,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                                         <path
                                                             d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z">
                                                         </path>
-                                                    </svg>Pursuing</span></div>
+                                                    </svg>Pursuing</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -5945,7 +5990,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                                     class="flex h-9 w-full rounded-md border px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm pl-9 bg-[#111e35] border-slate-700/60 text-slate-200 placeholder:text-slate-600 focus:border-cyan-400/50 focus:ring-cyan-400/20"
                                                     x-file-name="Contact" x-line-number="124" x-column="22"
                                                     x-component="Input" x-id="Contact_124_22" x-dynamic="true"
-                                                    required="" placeholder="Your name" value="" name="name"></div>
+                                                    required="" placeholder="Your name" value="" name="name">
+                                            </div>
                                         </div>
                                         <div class="space-y-2" x-file-name="Contact" x-line-number="134" x-column="18"
                                             x-component="div" x-id="Contact_134_18" x-dynamic="false"><label
@@ -5969,7 +6015,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                                     x-file-name="Contact" x-line-number="138" x-column="22"
                                                     x-component="Input" x-id="Contact_138_22" x-dynamic="true"
                                                     required="" placeholder="your@email.com" type="email" value=""
-                                                    name="email"></div>
+                                                    name="email">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="space-y-2" x-file-name="Contact" x-line-number="151" x-column="16"
@@ -6167,7 +6214,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                                     x-source-type="unknown" x-source-var="personal" x-source-path="name"
                                     x-source-editable="false" style="display: contents;">Arkan Hussain</span>. All
                                 rights reserved.</p>
-                           
+
                         </div>
                     </div>
                 </footer>
@@ -6184,7 +6231,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-   
+
     <script type="text/javascript" crossorigin="anonymous"
         src="https://us-assets.i.posthog.com/static/web-vitals.js?v=1.367.0"></script>
     <script type="text/javascript" crossorigin="anonymous"
